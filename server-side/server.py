@@ -1,4 +1,6 @@
-"""This module responds to the REST invocations from client side app."""
+"""This module responds to the REST invocations from client side app.
+This module stay on the server side (raspberry OS) and REST invocations
+are made from Kotlin client side app."""
 
 from flask import Flask, jsonify
 from server_handler import ServerHandle
@@ -11,6 +13,7 @@ server_prop = ServerHandle()
 @app.route('/', strict_slashes=False)
 def root():
     """Root method which returns with Server hostname.
+    Server is raspberry host.
 
     return: Hostname as JSON
     """
@@ -20,6 +23,7 @@ def root():
 @app.route('/CPU', strict_slashes=False)
 def fetch_cpu_usage():
     """Method returns with CPU utilisation on Server.
+    Server is raspberry host.
 
     return: CPU usage as JSON
     example: 3.8
